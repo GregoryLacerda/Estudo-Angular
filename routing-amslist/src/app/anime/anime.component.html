@@ -1,0 +1,23 @@
+<h1>Anime</h1>
+
+<ul class="animes">
+    <li *ngFor="let anime of animes">
+        <span class="name"> </span>
+        <span class="cover"> Capa: {{anime.coverImage}}</span>
+        <span class="siteLink"> Link do Site: {{anime.siteLink}}</span>
+        <span class="description"> Descrição: {{anime.description}}</span>
+        <span class="status"> Status: {{anime.status}}</span>
+        <span class="volume"> Volume: {{anime.volume}}</span>
+        <span class="chapter"> Capitulo: {{anime.chapter}}</span>
+        <span class="userName"> Nome: {{anime.user.name}}</span>
+        <span class="userEmail"> E-mail: {{anime.user.email}}</span>
+        <div class="card" style="width: 18rem;">
+            <img src="https://static3.mangalivre.net/cdnwp3/capas/vcHnmg3zmSAeq9xI3cibnw/2551/618af7773b22bexternal_cover.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{anime.name}}</h5>
+              <p class="card-text">{{anime.description}}</p>
+              <a href={{anime.siteLink}} class="btn btn-primary">Link</a>
+            </div>
+          </div>
+    </li>
+</ul>

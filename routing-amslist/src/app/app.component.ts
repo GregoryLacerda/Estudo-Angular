@@ -7,10 +7,16 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-bootstrap';
 
+  name: string = '';
+
+  title = 'routing-amslist';
   constructor(
     private route: ActivatedRoute,
-  ){}
-
+  ) {}
+  ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      this.name = params['name'];
+  });
+  }
 }
