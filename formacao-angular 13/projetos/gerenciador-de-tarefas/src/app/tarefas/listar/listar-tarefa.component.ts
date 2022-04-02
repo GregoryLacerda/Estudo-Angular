@@ -21,5 +21,18 @@ export class ListarTarefaComponent implements OnInit {
     return this.tarefaService.listarTodos();
   }
   
+  remover($event: any, tarefa: Tarefa): void{//event é o evento padrão do navegador, será usado para que não aconteça nada ao clicar
+    $event.preventDefault();//desabilita a ação de atulizar a pagina
+    if (confirm('Deseja remover a tarefa "' + tarefa.nome + '" ?')) {//confirm é um alerta do navegador que vai retornar true se clicar em ok e false se cancelar
+      this.tarefaService.remover(tarefa.id);
+      this.tarefas = this.listarTodos();
+    }
+  }
+  alterarStatus(tarefa: Tarefa): void {
+    if (confirm('Deseja alterar o status da tarefa "' + tarefa.nome + '" ?')) {
+      this.tarefaService.alterarStatus(tarefa.id);
+      this.tarefas = this.listarTodos();
+    }
+  }
 
 }
