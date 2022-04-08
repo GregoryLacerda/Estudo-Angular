@@ -17,6 +17,6 @@ export class AnimeComponent implements OnInit {
   }
 
   getAnimes(){
-    this.animeService.getAnime().subscribe(retorno => this.animes = retorno);
+    this.animeService.anime.subscribe(retorno => this.animes = retorno);
   }
 }

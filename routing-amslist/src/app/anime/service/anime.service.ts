@@ -11,7 +11,7 @@ export class AnimeService {
 
   constructor(private http: HttpClient) { }
 
-  getAnime(): Observable<HttpClient[]>{
+  get anime(): Observable<HttpClient[]>{
     return this.http.get<Array<any>>(this.animeApi);
   }
 

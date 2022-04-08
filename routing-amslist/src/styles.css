@@ -1,2 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~bootstrap/dist/css/bootstrap.min.css'
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+.cards{
+    width: 15%;
+    height: 20%;
+    margin-left: 1%;
+    margin-top: auto;
+    margin-bottom: 1%;
+    display: inline-block;
+}
+.cards:hover .card-img{
+    opacity: 0.1;
+    transition: .5s ease;   
+    backface-visibility: hidden;
+}
+
+.cards:hover .cardContent{
+    opacity: 1;  
+    display: block;
+}
+.cardContent{
+    color: white;
+    display: none;
+    font-size: 16px;
+}
+.card-text{
+    margin: 0 0 0 0;
+}

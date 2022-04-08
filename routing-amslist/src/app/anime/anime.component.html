@@ -1,23 +1,14 @@
 <h1>Anime</h1>
 
-<ul class="animes">
-    <li *ngFor="let anime of animes">
-        <span class="name"> </span>
-        <span class="cover"> Capa: {{anime.coverImage}}</span>
-        <span class="siteLink"> Link do Site: {{anime.siteLink}}</span>
-        <span class="description"> Descrição: {{anime.description}}</span>
-        <span class="status"> Status: {{anime.status}}</span>
-        <span class="volume"> Volume: {{anime.volume}}</span>
-        <span class="chapter"> Capitulo: {{anime.chapter}}</span>
-        <span class="userName"> Nome: {{anime.user.name}}</span>
-        <span class="userEmail"> E-mail: {{anime.user.email}}</span>
-        <div class="card" style="width: 18rem;">
-            <img src="https://static3.mangalivre.net/cdnwp3/capas/vcHnmg3zmSAeq9xI3cibnw/2551/618af7773b22bexternal_cover.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">{{anime.name}}</h5>
-              <p class="card-text">{{anime.description}}</p>
-              <a href={{anime.siteLink}} class="btn btn-primary">Link</a>
-            </div>
-          </div>
-    </li>
-</ul>
+<div class="card cards bg-dark text-white" *ngFor="let anime of animes">
+  <img class="card-img" src="https://kbimages1-a.akamaihd.net/936f0b39-0bf9-492b-acf1-61117c52dd41/353/569/90/False/mushoku-tensei-jobless-reincarnation-light-novel-vol-13.jpg" alt="Card image">
+  <div class="card-img-overlay cardContent">
+    <h5 class="card-title">Mushoku Tensei: Jobless Reincarnation</h5>
+    <p class="card-text">Descrição: {{anime.description}}</p>
+    <p class="card-text">Status: {{anime.status}}</p>
+    <p class="card-text">Temporada: {{anime.volume}}</p>
+    <p class="card-text">Episode: {{anime.chapter}}</p>
+    <p class="card-text"><a href="https://www.google.com.br/" target="_blank">Site</a></p>
+    <p class="card-text">User: {{anime.user.name}}</p>
+  </div>
+</div>
