@@ -1,0 +1,47 @@
+<h1>Cadastrar tarefa</h1>
+
+<div class="well">
+  <form #formTarefa="ngForm"><!-- coloca o nome como formTarefa e o # serve para disponibilizar uma variavel local -->
+    <div class="form-group">
+      <label for="nome">Tarefa:</label>
+      <!-- O ngModel usa um bind duplo para o angular manter em sincronismo o tarefa.nome no componente e na view-->
+      <input 
+        type="text"
+        class="form-control"
+        id="nome"
+        name="nome"
+        [(ngModel)]="tarefa.nome"
+        #nome = "ngModel"
+        minlength="5" 
+        required> 
+        <!-- o angular armazena na variavel local #nome um array chamado erros com as informações se tem algum erro ou não-->
+        <!-- caso alguma das validações forem verdadeiras exibe a div de erro-->
+        <!-- a instrução && (nome.dirty || nome.touched) faz com que a mensagem de erro só apareça 
+          quando tenha alguma interação do usuario com o campo, sem mexer ele está no modo pristine-->
+      <div *ngIf="nome.errors && (nome.dirty || nome.touched)"
+      class="alert alert-danger">
+        <div [hidden]="!nome.errors.required"> <!-- Esconde a div caso um erro required exista no array #nome-->
+          Digite a tarefa.
+        </div>
+        <div [hidden]="!nome.errors.minlength"><!-- Esconde a div caso caso um erro minlength exista no array #nome -->
+          A tarefa deve conter ao menos 5 caracteres.
+        </div>
+      </div>
+    </div>
+    <div class="form-group text-center">
+      <!-- o evento click chama a função cadastrar-->
+      <input 
+        type="submit"
+        class="btn btn-success"
+        (click)="cadastrar()"
+        value="Cadastrar"
+        [disabled]="!formTarefa.form.valid"><!-- Matem o botão desabilitado até que o form seja valido-->
+        <!-- Volta para a pagina incial: Tarefas-->
+      <a [routerLink]="['/tarefas']"
+        class="btn btn-default">
+        <span class="glyphicon glyphicon-chevron-left" 
+          aria-hidden="true"></span> Voltar
+      </a>
+    </div>
+  </form>
+</div>
